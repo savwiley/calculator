@@ -109,18 +109,12 @@ equals.addEventListener('click', () => {
     operate(value, sign, displayValue);
 });
 
-//displayValue in operate() above should be secondop
-
 
 //DISPLAY
 let displayValue = "";
 let firstop = null;
 let display = document.querySelector(".display");
 display.textContent = displayValue;
-
-/*
-https://mrbuddh4.github.io/calculator/
-*/
 
 
 

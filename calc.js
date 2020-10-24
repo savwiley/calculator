@@ -1,14 +1,15 @@
 //ADD
 function add(a, b) {
-    displayValue = Number(a) + Number(b)
+    displayValue = Number(a) + Number(b);
     return display.textContent = displayValue;
 }
 let addBtn = document.querySelector("#plus");
 //FUNC FOR ADD BUTTON
 function addB(val) {
-    if (sign){
+    if (sign && !newEqual){
         firstop = operate(value, sign, displayValue);
     };
+    newEqual = null;
     value = val;
     sign = '+';
     return display.textContent = (displayValue = "");
@@ -27,9 +28,10 @@ function subtract(a, b) {
 let subBtn = document.querySelector("#minus");
 //FUNC FOR SUBTRACT BUTTON
 function subB(val) {
-    if (sign){
+    if (sign && !newEqual){
         firstop = operate(value, sign, displayValue);
     };
+    newEqual = null;
     value = val;
     sign = '-';
     return display.textContent = (displayValue = "");
@@ -48,9 +50,10 @@ function multiply(a, b) {
 let multBtn = document.querySelector("#times");
 //FUNC FOR MULTIPLICATION BUTTON
 function multB(val) {
-    if (sign){
+    if (sign && !newEqual){
         firstop = operate(value, sign, displayValue);
     };
+    newEqual = null;
     value = val;
     sign = '*';
     return display.textContent = (displayValue = "");
@@ -69,9 +72,10 @@ function divide(a, b) {
 let divBtn = document.querySelector("#divide");
 //FUNC FOR DIVIDE BUTTON
 function divB(val) {
-    if (sign){
+    if (sign && !newEqual){
         firstop = operate(value, sign, displayValue);
     };
+    newEqual = null;
     value = val;
     sign = '/';
     return display.textContent = (displayValue = "");
@@ -80,12 +84,6 @@ function divB(val) {
 divBtn.addEventListener('click', () => {
     divB(displayValue)
 });
-
-
-
-//A & OPERATOR VARIABLES
-let value;
-let sign;
 
 
 
@@ -101,20 +99,34 @@ function operate(a, operator, b) {
     } else if (operator == '*') {
         return multiply(a, b);
     } else if (operator == '/') {
+        if (a == '0' && b == '0') {
+            return display.textContent = "ERROR";
+        } else {
         return divide(a, b);
+        }
     }
 }
 let equals = document.querySelector("#equal");
 equals.addEventListener('click', () => {
-    operate(value, sign, displayValue);
+    operate(value, sign, displayValue); newEqualPlus();
 });
+function newEqualPlus() {
+    return newEqual = 1;
+};
 
 
 //DISPLAY
 let displayValue = "";
-let firstop = null;
 let display = document.querySelector(".display");
 display.textContent = displayValue;
+
+
+
+//A & OPERATOR VARIABLES
+let value;
+let sign;
+let firstop = null;
+let newEqual = null;
 
 
 
@@ -124,6 +136,7 @@ function clear() {
     firstop = null;
     value = null;
     sign = null;
+    newEqual = null;
     return display.textContent = (displayValue = "");
 }
 clearBtn.addEventListener('click', clear);
@@ -133,61 +146,111 @@ clearBtn.addEventListener('click', clear);
 //NUMBER BUTTONS
 let oneBtn = document.querySelector("#one");
 function one() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 1;
+    } else {
     return display.textContent = displayValue += 1;
+    }
 }
 oneBtn.addEventListener('click', one);
 
 let twoBtn = document.querySelector("#two");
 function two() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 2;
+    } else {
     return display.textContent = displayValue += 2;
+    }
 }
 twoBtn.addEventListener('click', two);
 
 let threeBtn = document.querySelector("#three");
 function three() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 3;
+    } else {
     return display.textContent = displayValue += 3;
+    }
 }
 threeBtn.addEventListener('click', three);
 
 let fourBtn = document.querySelector("#four");
 function four() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 4;
+    } else {
     return display.textContent = displayValue += 4;
+    }
 }
 fourBtn.addEventListener('click', four);
 
 let fiveBtn = document.querySelector("#five");
 function five() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 5;
+    } else {
     return display.textContent = displayValue += 5;
+    }
 }
 fiveBtn.addEventListener('click', five);
 
 let sixBtn = document.querySelector("#six");
 function six() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 6;
+    } else {
     return display.textContent = displayValue += 6;
+    }
 }
 sixBtn.addEventListener('click', six);
 
 let svnBtn = document.querySelector("#seven");
 function seven() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 7;
+    } else {
     return display.textContent = displayValue += 7;
+    }
 }
 svnBtn.addEventListener('click', seven);
 
 let eightBtn = document.querySelector("#eight");
 function eight() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 8;
+    } else {
     return display.textContent = displayValue += 8;
+    }
 }
 eightBtn.addEventListener('click', eight);
 
 let nineBtn = document.querySelector("#nine");
 function nine() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 9;
+    } else {
     return display.textContent = displayValue += 9;
+    }
 }
 nineBtn.addEventListener('click', nine);
 
 let zeroBtn = document.querySelector("#zero");
 function zero() {
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = 0;
+    } else {
     return display.textContent = displayValue += 0;
+    }
 }
 zeroBtn.addEventListener('click', zero);
 
@@ -195,7 +258,10 @@ zeroBtn.addEventListener('click', zero);
 //OTHER BUTTONS
 let deciBtn = document.querySelector("#deci");
 function deci() {
-    if (displayValue.includes('.')){
+    if (newEqual) {
+        clear();
+        return display.textContent = displayValue = '.';
+    } else if (displayValue.includes('.')){
         return display.textContent = displayValue;
     } else {
     return display.textContent = displayValue += '.';

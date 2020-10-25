@@ -167,7 +167,6 @@ function clear() {
 clearBtn.addEventListener('click', clear);
 
 
-
 //NUMBER BUTTONS
 let oneBtn = document.querySelector("#one");
 function one() {
@@ -175,7 +174,7 @@ function one() {
         clear();
         return display.textContent = displayValue = 1;
     } else {
-        return display.textContent = displayValue += 1;
+        return display.textContent = displayValue += "1";
     }
 }
 oneBtn.addEventListener('click', one);
@@ -186,7 +185,7 @@ function two() {
         clear();
         return display.textContent = displayValue = 2;
     } else {
-        return display.textContent = displayValue += 2;
+        return display.textContent = displayValue += "2";
     }
 }
 twoBtn.addEventListener('click', two);
@@ -197,7 +196,7 @@ function three() {
         clear();
         return display.textContent = displayValue = 3;
     } else {
-        return display.textContent = displayValue += 3;
+        return display.textContent = displayValue += "3";
     }
 }
 threeBtn.addEventListener('click', three);
@@ -208,7 +207,7 @@ function four() {
         clear();
         return display.textContent = displayValue = 4;
     } else {
-        return display.textContent = displayValue += 4;
+        return display.textContent = displayValue += "4";
     }
 }
 fourBtn.addEventListener('click', four);
@@ -219,7 +218,7 @@ function five() {
         clear();
         return display.textContent = displayValue = 5;
     } else {
-        return display.textContent = displayValue += 5;
+        return display.textContent = displayValue += "5";
     }
 }
 fiveBtn.addEventListener('click', five);
@@ -230,7 +229,7 @@ function six() {
         clear();
         return display.textContent = displayValue = 6;
     } else {
-        return display.textContent = displayValue += 6;
+        return display.textContent = displayValue += "6";
     }
 }
 sixBtn.addEventListener('click', six);
@@ -241,7 +240,7 @@ function seven() {
         clear();
         return display.textContent = displayValue = 7;
     } else {
-        return display.textContent = displayValue += 7;
+        return display.textContent = displayValue += "7";
     }
 }
 svnBtn.addEventListener('click', seven);
@@ -252,7 +251,7 @@ function eight() {
         clear();
         return display.textContent = displayValue = 8;
     } else {
-        return display.textContent = displayValue += 8;
+        return display.textContent = displayValue += "8";
     }
 }
 eightBtn.addEventListener('click', eight);
@@ -263,7 +262,7 @@ function nine() {
         clear();
         return display.textContent = displayValue = 9;
     } else {
-        return display.textContent = displayValue += 9;
+        return display.textContent = displayValue += "9";
     }
 }
 nineBtn.addEventListener('click', nine);
@@ -274,7 +273,7 @@ function zero() {
         clear();
         return display.textContent = displayValue = 0;
     } else {
-        return display.textContent = displayValue += 0;
+        return display.textContent = displayValue += "0";
     }
 }
 zeroBtn.addEventListener('click', zero);
